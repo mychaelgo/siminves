@@ -15,7 +15,7 @@ All API documented in [docs directory](docs/) with OpenAPI format v3.0
 
 ## Examples
 
-See [examples directory](https://github.com/mychaelgo/siminvest/examples)
+See [examples directory](/examples)
 
 ## SDK
 
