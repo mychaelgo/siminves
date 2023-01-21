@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: api.siminvest.co.id
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: 'https://api.siminvest.co.id'
     description: SimInvest server
