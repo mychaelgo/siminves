@@ -1,0 +1,2005 @@
+openapi: 3.0.0
+info:
+  title: api.siminvest.co.id
+  version: 1.0.0
+servers:
+  - url: 'https://api.siminvest.co.id'
+    description: SimInvest server
+paths:
+  /api/v2/users/signin/phone:
+    post:
+      summary: ''
+      operationId: signInWithPhone
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
+                      account_id:
+                        type: integer
+                      cif_id:
+                        type: string
+                      hp:
+                        type: string
+                      ktp:
+                        type: string
+                      message:
+                        type: string
+                      nama_nasabah:
+                        type: string
+                      session_key:
+                        type: string
+                      user_id:
+                        type: string
+                  status:
+                    type: boolean
+                x-examples:
+                  Example 1:
+                    data:
+                      access_token: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJENGlLNFFSU0FQU09TNkRKazFDMkNuV1hTeWU1U1lDVyIsInN1YiI6IlNpbWFzSW52ZXN0In0.kvCS-38BF6uZ5n7L_PM4Z1mLg5GOPH0blEB06fgYk34
+                      account_id: 11600
+                      cif_id: xxx
+                      hp: '6281342179785'
+                      ktp: '7271032112930002'
+                      message: Login success
+                      nama_nasabah: xxx
+                      session_key: xxx
+                      user_id: xxx
+                    status: true
+      tags:
+        - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                device_id:
+                  type: string
+                  example: 85349225-1869-485f-a11c-34ba0c63e3b9
+                phone_number:
+                  type: string
+                  example: '6281234567890'
+                pin:
+                  type: string
+                  example: '123456'
+      description: ''
+  /api/v1/users/app/users/detail:
+    get:
+      summary: Get user detail
+      tags:
+        - user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  FailedAttempts:
+                    type: integer
+                  account_details:
+                    type: object
+                    properties:
+                      account_detail_id:
+                        type: integer
+                      account_id:
+                        type: string
+                      bank_name:
+                        type: string
+                      created_at:
+                        type: string
+                      dukcapil:
+                        type: integer
+                      email:
+                        type: string
+                      full_name:
+                        type: string
+                      id_image_path:
+                        type: string
+                      id_number:
+                        type: string
+                      id_type:
+                        type: string
+                      npwp_image_path:
+                        type: string
+                      npwp_number:
+                        type: string
+                      phone_number:
+                        type: string
+                      rdn_name:
+                        type: string
+                      selfie_image_path:
+                        type: string
+                      signature_image_path:
+                        type: string
+                      updated_at:
+                        type: string
+                  account_id:
+                    type: integer
+                  bank_data:
+                    type: object
+                    properties:
+                      account_name:
+                        type: string
+                      account_number:
+                        type: string
+                      bank:
+                        type: string
+                  created_at:
+                    type: string
+                  equity_account:
+                    type: object
+                    properties:
+                      account_id:
+                        type: integer
+                      agent:
+                        type: string
+                      branch:
+                        type: string
+                      created_at:
+                        type: string
+                      equity_account_id:
+                        type: integer
+                      equity_client_id:
+                        type: string
+                      equity_kyc_status:
+                        type: boolean
+                      equity_status:
+                        type: string
+                      equity_user_id:
+                        type: string
+                      equity_user_password:
+                        type: string
+                      equity_user_pin:
+                        type: string
+                      nik:
+                        type: string
+                      registration_number:
+                        type: string
+                      session:
+                        type: string
+                      sid:
+                        type: string
+                      stage:
+                        type: integer
+                      sub_account:
+                        type: string
+                      updated_at:
+                        type: string
+                      user_password:
+                        type: string
+                      user_pin:
+                        type: string
+                  equity_completion:
+                    type: boolean
+                  fund_account:
+                    type: object
+                    properties:
+                      account_id:
+                        type: integer
+                      cif_id:
+                        type: string
+                      created_at:
+                        type: string
+                      first_transaction_status:
+                        type: boolean
+                      fund_account_id:
+                        type: integer
+                      fund_session_key:
+                        type: string
+                      fund_user_id:
+                        type: string
+                      ifua:
+                        type: string
+                      is_aperd:
+                        type: boolean
+                      kyc_status:
+                        type: boolean
+                      status:
+                        type: string
+                      updated_at:
+                        type: string
+                  fund_completion:
+                    type: boolean
+                  ifua_status:
+                    type: integer
+                  phone_number:
+                    type: string
+                  pin:
+                    type: string
+                  risk_profile:
+                    type: string
+                  risk_profile_code:
+                    type: integer
+                  status:
+                    type: string
+                  updated_at:
+                    type: string
+                x-examples:
+                  Example 1:
+                    FailedAttempts: 0
+                    LockedUntil: null
+                    account_details:
+                      account_detail_id: 7238
+                      account_id: '11600'
+                      bank_name: Mychael christian go
+                      created_at: '2021-08-07T10:20:08+07:00'
+                      dukcapil: 0
+                      email: ADMIN@MYCHAELGO.COM
+                      full_name: MYCHAEL CHRISTIAN GO
+                      id_image_path: ''
+                      id_number: '7271032112930002'
+                      id_type: ktp
+                      npwp_image_path: ''
+                      npwp_number: '709966691035000'
+                      phone_number: '6281342179785'
+                      rdn_name: MYCHAEL CHRISTIAN GO
+                      selfie_image_path: ''
+                      signature_image_path: ''
+                      updated_at: '2022-12-07T09:01:28+07:00'
+                    account_id: 11600
+                    bank_data:
+                      account_name: MYCHAEL CHRISTIAN GO
+                      account_number: '-'
+                      bank: '-'
+                    created_at: '2021-08-07T10:20:08+07:00'
+                    equity_account:
+                      account_id: 11600
+                      agent: ''
+                      branch: ''
+                      created_at: '2021-08-07T10:22:23+07:00'
+                      equity_account_id: 7429
+                      equity_client_id: MYCH002R
+                      equity_kyc_status: true
+                      equity_status: Approved
+                      equity_user_id: MYCHAE
+                      equity_user_password: M1vULxHeBVcwGRFYn2jDR3b7gcOO0MtITqk=
+                      equity_user_pin: 0Z0ZeJvsv7V-vRoKvFmwW62UyU6qyQ==
+                      nik: ''
+                      registration_number: ''
+                      session: dBnXpQtuSLHky8VWNc2o5sA
+                      sid: IDD2112E4872849
+                      stage: 10
+                      sub_account: DH0014F2100127
+                      updated_at: '2023-01-21T06:49:11+07:00'
+                      user_password: ''
+                      user_pin: ''
+                    equity_completion: true
+                    fund_account:
+                      account_id: 0
+                      cif_id: ''
+                      created_at: '0001-01-01T00:00:00Z'
+                      first_transaction_status: false
+                      fund_account_id: 0
+                      fund_session_key: ''
+                      fund_user_id: ''
+                      ifua: ''
+                      is_aperd: false
+                      kyc_status: false
+                      status: ''
+                      updated_at: '0001-01-01T00:00:00Z'
+                    fund_completion: false
+                    ifua_status: 0
+                    phone_number: '6281342179785'
+                    pin: hPcAuq4HwwaoKgv4gzaC1gXADHk_MQ==
+                    risk_profile: Balance
+                    risk_profile_code: 2
+                    status: ACTIVE
+                    updated_at: '2022-11-04T09:41:32+07:00'
+      operationId: getUserDetail
+      security:
+        - bearerToken: []
+    parameters: []
+  /api/v1/users/rdn:
+    get:
+      summary: Get user RDN
+      tags:
+        - user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      account_id:
+                        type: integer
+                      balance:
+                        type: integer
+                      withdraw_balance:
+                        type: integer
+                      rdn_account:
+                        type: string
+                      rdn_bank:
+                        type: string
+                      bank_account_name:
+                        type: string
+                      bank_name:
+                        type: string
+                      bank_account_number:
+                        type: string
+                      t0:
+                        type: integer
+                      t1:
+                        type: integer
+                      t2:
+                        type: integer
+                      t3:
+                        type: integer
+                      t4:
+                        type: integer
+                      t1_interest:
+                        type: number
+                      t2_interest:
+                        type: integer
+                      t1_interest_label:
+                        type: string
+                      t2_interest_label:
+                        type: string
+                      active_fee:
+                        type: integer
+                  message:
+                    type: string
+                  status:
+                    type: integer
+                  success:
+                    type: boolean
+                x-examples:
+                  Example 1:
+                    data:
+                      account_id: 11600
+                      balance: 3067571
+                      withdraw_balance: 3067570
+                      rdn_account: '4586685244'
+                      rdn_bank: BCA
+                      bank_account_name: MYCHAEL CHRISTIAN GO
+                      bank_name: BCA
+                      bank_account_number: '5271157861'
+                      t0: 0
+                      t1: 0
+                      t2: 0
+                      t3: 0
+                      t4: 0
+                      t1_interest: 0.5
+                      t2_interest: 1
+                      t1_interest_label: 0.5%
+                      t2_interest_label: 2 x 0.5%
+                      active_fee: 0
+                    message: Success fetch withdrawal info
+                    status: 200
+                    success: true
+      operationId: getRDNInfo
+      security:
+        - bearerToken: []
+  '/api/v1/users/portfolios/equities/{account_id}':
+    get:
+      summary: Get portfolio
+      tags:
+        - user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      buying_power:
+                        type: integer
+                      buyopen:
+                        type: integer
+                      cash_balance:
+                        type: integer
+                      earnings:
+                        type: integer
+                      market_value:
+                        type: integer
+                      open:
+                        type: integer
+                      portfolio:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            account_id:
+                              type: integer
+                            available_lot:
+                              type: integer
+                            average:
+                              type: integer
+                            balance_lot:
+                              type: integer
+                            buy_price:
+                              type: integer
+                            code:
+                              type: string
+                            current_price:
+                              type: integer
+                            earnings:
+                              type: integer
+                            invested_amount:
+                              type: integer
+                            is_enabled:
+                              type: boolean
+                            lot:
+                              type: integer
+                            return:
+                              type: number
+                            value:
+                              type: integer
+                      return:
+                        type: number
+                      sellopen:
+                        type: integer
+                      total_investment:
+                        type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    data:
+                      buying_power: 43067571
+                      buyopen: 0
+                      cash_balance: 3067571
+                      earnings: -76043350
+                      market_value: 529884900
+                      open: 0
+                      portfolio:
+                        - account_id: 11600
+                          available_lot: 169
+                          average: 8885.06
+                          balance_lot: 169
+                          buy_price: 8885.06
+                          code: BBCA
+                          current_price: 8300
+                          earnings: -9887514
+                          invested_amount: 150157514
+                          is_enabled: true
+                          lot: 169
+                          return: -6.584761385967005
+                          special_notation_symbols: null
+                          value: 140270000
+                        - account_id: 11600
+                          available_lot: 125
+                          average: 4843.52
+                          balance_lot: 125
+                          buy_price: 4843.52
+                          code: BBRI
+                          current_price: 4650
+                          earnings: -2419000
+                          invested_amount: 60544000
+                          is_enabled: true
+                          lot: 125
+                          return: -3.99544133192389
+                          special_notation_symbols: null
+                          value: 58125000
+                        - account_id: 11600
+                          available_lot: 976
+                          average: 2493.8
+                          balance_lot: 976
+                          buy_price: 2493.8
+                          code: EXCL
+                          current_price: 2360
+                          earnings: -13058880
+                          invested_amount: 243394880
+                          is_enabled: true
+                          lot: 976
+                          return: -5.365305958777769
+                          special_notation_symbols: null
+                          value: 230336000
+                        - account_id: 11600
+                          available_lot: 15
+                          average: 34775
+                          balance_lot: 15
+                          buy_price: 34775
+                          code: GGRM
+                          current_price: 17125
+                          earnings: -26475000
+                          invested_amount: 52162500
+                          is_enabled: true
+                          lot: 15
+                          return: -50.754852624011505
+                          special_notation_symbols: null
+                          value: 25687500
+                        - account_id: 11600
+                          available_lot: 270
+                          average: 1306.57
+                          balance_lot: 270
+                          buy_price: 1306.57
+                          code: HMSP
+                          current_price: 825
+                          earnings: -13002390
+                          invested_amount: 35277390
+                          is_enabled: true
+                          lot: 270
+                          return: -36.85757364703001
+                          special_notation_symbols: null
+                          value: 22275000
+                        - account_id: 11600
+                          available_lot: 218
+                          average: 726.491
+                          balance_lot: 218
+                          buy_price: 726.491
+                          code: SMBR
+                          current_price: 388
+                          earnings: -7379103
+                          invested_amount: 15837503
+                          is_enabled: true
+                          lot: 218
+                          return: -46.592591016399496
+                          special_notation_symbols: null
+                          value: 8458400
+                        - account_id: 11600
+                          available_lot: 93
+                          average: 5220.91
+                          balance_lot: 93
+                          buy_price: 5220.91
+                          code: UNVR
+                          current_price: 4810
+                          earnings: -3821463
+                          invested_amount: 48554463
+                          is_enabled: true
+                          lot: 93
+                          return: -7.870467025863308
+                          special_notation_symbols: null
+                          value: 44733000
+                      return: -12.549893489864516
+                      sellopen: 0
+                      total_investment: 605928250
+                    message: Success fetch equity portfolio
+      operationId: getPortfolio
+      security:
+        - bearerToken: []
+    parameters:
+      - schema:
+          type: number
+        name: account_id
+        in: path
+        required: true
+  /emerson/v1/stock:
+    parameters: []
+    get:
+      summary: Your GET endpoint
+      tags:
+        - stock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        code:
+                          type: string
+                        company_name:
+                          type: string
+                        company_logo_url:
+                          type: string
+                        lp:
+                          type: integer
+                        pp:
+                          type: integer
+                        chg:
+                          type: integer
+                        per_chg:
+                          type: number
+                        vol:
+                          type: integer
+                        val:
+                          type: integer
+                        freq:
+                          type: integer
+                        is_enabled:
+                          type: boolean
+                        board_id:
+                          type: integer
+                  is_success:
+                    type: boolean
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    code: 2
+                    data:
+                      - id: 69
+                        code: BBCA
+                        company_name: Bank Central Asia Tbk
+                        company_logo_url: 'https://siminvest-equity.oss-ap-southeast-5.aliyuncs.com/company-logo/BBCA.png'
+                        lp: 8300
+                        pp: 8325
+                        chg: -25
+                        per_chg: -0.31
+                        vol: 82111300
+                        val: 680728545000
+                        freq: 13272
+                        special_notation_symbols: null
+                        is_enabled: true
+                        board_id: 1
+                    is_success: true
+                    message: data found
+      operationId: getStockInfo
+      security:
+        - bearerToken: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: code
+          required: true
+  '/api/pcs/v2/company/{code}/financial':
+    get:
+      summary: Get stock financial
+      tags:
+        - stock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  annual:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        period:
+                          type: string
+                        quarter:
+                          type: integer
+                        variables:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              group:
+                                type: string
+                              label:
+                                type: string
+                              variable:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    label:
+                                      type: string
+                                    value:
+                                      type: string
+                  quarterly:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        period:
+                          type: string
+                        quarter:
+                          type: integer
+                        variables:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              group:
+                                type: string
+                              label:
+                                type: string
+                              variable:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    label:
+                                      type: string
+                                    value:
+                                      type: string
+                x-examples:
+                  Example 1:
+                    annual:
+                      - period: '2016'
+                        quarter: 0
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Liabilities
+                                value: '560557000'
+                              - label: Assets
+                                value: '676739000'
+                              - label: Equity
+                                value: '112715000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-60596400'
+                              - label: Net Cash Change
+                                value: '-18591000'
+                              - label: Financing
+                                value: '-3662060'
+                              - label: Operating
+                                value: '45667500'
+                              - label: Cash Reserve
+                                value: '100320000'
+                      - period: '2017'
+                        quarter: 0
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '614940000'
+                              - label: Assets
+                                value: '750320000'
+                              - label: Equity
+                                value: '131402000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-20620000'
+                              - label: Net Cash Change
+                                value: '-17617100'
+                              - label: Financing
+                                value: '-6655700'
+                              - label: Operating
+                                value: '9658630'
+                              - label: Cash Reserve
+                                value: '83377400'
+                      - period: '2019'
+                        quarter: 0
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Assets
+                                value: '918989000'
+                              - label: Equity
+                                value: '174143000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '740067000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-34732400'
+                              - label: Net Cash Change
+                                value: '9874730'
+                              - label: Financing
+                                value: '-7334900'
+                              - label: Operating
+                                value: '51942000'
+                              - label: Cash Reserve
+                                value: '113068000'
+                      - period: '2020'
+                        quarter: 0
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '885538000'
+                              - label: Assets
+                                value: '1075570000'
+                              - label: Equity
+                                value: '184715000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-44117800'
+                              - label: Net Cash Change
+                                value: '-8692240'
+                              - label: Financing
+                                value: '-15553300'
+                              - label: Operating
+                                value: '50978900'
+                              - label: Cash Reserve
+                                value: '106271000'
+                    quarterly:
+                      - period: '2017'
+                        quarter: 1
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Equity
+                                value: '118412000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '567349000'
+                              - label: Assets
+                                value: '689596000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-19865500'
+                              - label: Net Cash Change
+                                value: '-18496800'
+                              - label: Financing
+                                value: '-337198'
+                              - label: Operating
+                                value: '1705860'
+                              - label: Cash Reserve
+                                value: '81969000'
+                      - period: '2017'
+                        quarter: 2
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Liabilities
+                                value: '613660000'
+                              - label: Assets
+                                value: '738199000'
+                              - label: Equity
+                                value: '120896000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Investing
+                                value: '-16250900'
+                              - label: Net Cash Change
+                                value: '13438000'
+                              - label: Financing
+                                value: '-5243750'
+                              - label: Operating
+                                value: '34932600'
+                              - label: Cash Reserve
+                                value: '114040000'
+                      - period: '2017'
+                        quarter: 3
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '608565000'
+                              - label: Assets
+                                value: '739883000'
+                              - label: Equity
+                                value: '127548000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-15606800'
+                              - label: Financing
+                                value: '-4695170'
+                              - label: Operating
+                                value: '-6110300'
+                              - label: Cash Reserve
+                                value: '85165200'
+                              - label: Investing
+                                value: '-4801360'
+                      - period: '2019'
+                        quarter: 2
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Equity
+                                value: '159684000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '706240000'
+                              - label: Assets
+                                value: '870457000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-2837660'
+                              - label: Financing
+                                value: '-6605670'
+                              - label: Operating
+                                value: '14149100'
+                              - label: Cash Reserve
+                                value: '100764000'
+                              - label: Investing
+                                value: '-10381100'
+                      - period: '2019'
+                        quarter: 3
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Liabilities
+                                value: '721102000'
+                              - label: Assets
+                                value: '893594000'
+                              - label: Equity
+                                value: '167982000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '845073'
+                              - label: Financing
+                                value: '-5778200'
+                              - label: Operating
+                                value: '24110600'
+                              - label: Cash Reserve
+                                value: '104513000'
+                              - label: Investing
+                                value: '-17487300'
+                      - period: '2020'
+                        quarter: 1
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '796379000'
+                              - label: Assets
+                                value: '972930000'
+                              - label: Equity
+                                value: '171710000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-5021320'
+                              - label: Financing
+                                value: '3805280'
+                              - label: Operating
+                                value: '20634600'
+                              - label: Cash Reserve
+                                value: '112471000'
+                              - label: Investing
+                                value: '-29461200'
+                      - period: '2020'
+                        quarter: 2
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Assets
+                                value: '975076000'
+                              - label: Equity
+                                value: '169274000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '800862000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-21895100'
+                              - label: Financing
+                                value: '-13352200'
+                              - label: Operating
+                                value: '37608300'
+                              - label: Cash Reserve
+                                value: '93039900'
+                              - label: Investing
+                                value: '-46151200'
+                      - period: '2020'
+                        quarter: 3
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '819742000'
+                              - label: Assets
+                                value: '1003640000'
+                              - label: Equity
+                                value: '179139000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Revenue
+                                value: '0'
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-20886000'
+                              - label: Financing
+                                value: '-13246400'
+                              - label: Operating
+                                value: '27128300'
+                              - label: Cash Reserve
+                                value: '95044700'
+                              - label: Investing
+                                value: '-34767900'
+                      - period: '2021'
+                        quarter: 1
+                        variables:
+                          - group: balance_sheet
+                            label: Balance Sheet
+                            variable:
+                              - label: Equity
+                                value: '178834000'
+                              - label: Debt Equity Ratio
+                                value: '0'
+                              - label: Liabilities
+                                value: '906773000'
+                              - label: Assets
+                                value: '1090380000'
+                          - group: income_statement
+                            label: Income Statement
+                            variable:
+                              - label: Net Margin
+                                value: '0'
+                              - label: Net Income
+                                value: '0'
+                              - label: Revenue
+                                value: '0'
+                          - group: cash_flow
+                            label: Cash Flow
+                            variable:
+                              - label: Net Cash Change
+                                value: '-22842000'
+                              - label: Financing
+                                value: '-993535'
+                              - label: Operating
+                                value: '-10433000'
+                              - label: Cash Reserve
+                                value: '83650100'
+                              - label: Investing
+                                value: '-11415500'
+      operationId: getStockFinancial
+      security:
+        - bearerToken: []
+    parameters:
+      - schema:
+          type: string
+        name: code
+        in: path
+        required: true
+  '/emerson/v1/stock/{stock_id}/keystat':
+    parameters:
+      - schema:
+          type: number
+        name: stock_id
+        in: path
+        required: true
+    get:
+      summary: Get stock keystat
+      tags:
+        - stock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category_id:
+                          type: integer
+                        category_label:
+                          type: string
+                        component:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                  is_success:
+                    type: boolean
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    code: 2
+                    data:
+                      - category_id: 1
+                        category_label: Earnings
+                        component:
+                          - id: 1
+                            label: Dividend Per Share (DPS)
+                            value: 145
+                          - id: 2
+                            label: Earnings Per Share (EPS) Annualised
+                            value: 316.33
+                          - id: 3
+                            label: Revenue Per Share (RPS) Annualised
+                            value: 370.08
+                          - id: 4
+                            label: Book Value Per Share (BVPS)
+                            value: 1736.61
+                          - id: 5
+                            label: Cash Flow Per Share (CFPS) Annualised
+                            value: 404.36
+                          - id: 6
+                            label: Cash Per Share (CPS)
+                            value: 119.08
+                          - id: 7
+                            label: Earnings Before Tax (EBT)
+                            value: 35805328000
+                      - category_id: 2
+                        category_label: Valuation
+                        component:
+                          - id: 8
+                            label: Price Earnings Ratio (PER)
+                            value: 26.24
+                          - id: 9
+                            label: Price Book Value Ratio
+                            value: 4.78
+                      - category_id: 3
+                        category_label: Profitability
+                        component:
+                          - id: 10
+                            label: Dividend Payout Ratio (DPR)
+                            value: 49.52
+                          - id: 11
+                            label: Gross Profit Margin (GPM)
+                            value: 51.66
+                          - id: 12
+                            label: Operating Profit Margin (OPM)
+                            value: 51.66
+                          - id: 13
+                            label: Net Profit Margin (NPM)
+                            value: 41.78
+                          - id: 14
+                            label: Return on Equity (ROE) Annualised
+                            value: 18.22
+                          - id: 15
+                            label: Return on Assets (ROA) Annualised
+                            value: 3
+                      - category_id: 4
+                        category_label: Liquidity
+                        component:
+                          - id: 16
+                            label: Debt Equity Ratio (DER)
+                            value: 505
+                          - id: 17
+                            label: Current Ratio (CRR)
+                            value: 0
+                    is_success: true
+                    message: data found
+      operationId: getKeyStat
+      security:
+        - bearerToken: []
+  '/emerson/v1/stock/{stock_id}':
+    parameters:
+      - schema:
+          type: string
+        name: stock_id
+        in: path
+        required: true
+    get:
+      summary: Get stock profile
+      tags:
+        - stock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      code:
+                        type: string
+                      company_name:
+                        type: string
+                      company_logo_url:
+                        type: string
+                      company_description:
+                        type: string
+                      company_address:
+                        type: string
+                      company_email:
+                        type: string
+                      company_phone:
+                        type: string
+                      company_website:
+                        type: string
+                      company_fax:
+                        type: string
+                      company_commissioners:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            position:
+                              type: string
+                            name:
+                              type: string
+                      company_directors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            position:
+                              type: string
+                            name:
+                              type: string
+                      company_shareholders:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            share_cnt:
+                              type: integer
+                            share_pct:
+                              type: number
+                      company_ipo:
+                        type: object
+                        properties:
+                          date:
+                            type: string
+                          price:
+                            type: integer
+                          share:
+                            type: integer
+                          amount:
+                            type: string
+                      is_enabled:
+                        type: boolean
+                      board_id:
+                        type: integer
+                  is_success:
+                    type: boolean
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    code: 2
+                    data:
+                      id: 69
+                      code: BBCA
+                      company_name: Bank Central Asia Tbk
+                      company_logo_url: 'https://siminvest-equity.oss-ap-southeast-5.aliyuncs.com/company-logo/BBCA.png'
+                      company_description: 'PT. Bank Central Asia, Tbk (the Company) was established under the name of N.V. Perseroan Dagang Dan Industrie Semarang Knitting Factory based on notarial deed No. 38 of Raden Mas Soeprapto dated 10 August 1955, which was then changed to PT Bank Central Asia based on notarial deed No. 144 of Ridwan Suselo dated 21 May 1974.'
+                      company_address: 'Menara BCA, Grand Indonesia  Jl. MH Thamrin No. 1 - Jakarta Pusat 10310'
+                      company_email: "investor_relations@bca.co.id\_ "
+                      company_phone: (021) 2358 8000
+                      company_website: www.bca.co.id
+                      company_fax: (021) 2358 8300
+                      company_commissioners:
+                        - position: President Commissioner
+                          name: Ir. Djohan Emir Setijoso
+                        - position: Commissioner
+                          name: Tonny Kusnadi
+                        - position: Independent Commissioner
+                          name: Cyrillus Harinowo
+                        - position: Independent Commissioner
+                          name: Raden Pardede
+                        - position: Independent Commissioner
+                          name: Sumantri Slamet
+                      company_directors:
+                        - position: President Director
+                          name: Jahja Setiaatmadja
+                        - position: Vice President Director
+                          name: Gregory Hendra Lembong
+                        - position: Vice President Director
+                          name: Armand Wahyudi Hartono
+                        - position: Director
+                          name: Tan Ho Hien / Subur Tan
+                        - position: Director
+                          name: Rudy Susanto
+                        - position: Director
+                          name: Lianawaty Suwono
+                        - position: Director
+                          name: Santoso
+                        - position: Director
+                          name: Vera Eve Lim
+                        - position: Director
+                          name: Frengky Chandra Kusuma
+                        - position: Director
+                          name: Haryanto Tiara Budiman
+                        - position: Director
+                          name: John Kosasih
+                        - position: Director
+                          name: Antonius Widodo Mulyono
+                      company_shareholders:
+                        - name: PT Dwimuria Investama Andalan
+                          share_cnt: 67729950000
+                          share_pct: 54.94
+                        - name: 'Management :'
+                          share_cnt: 0
+                          share_pct: 0
+                        - name: Commissioner
+                          share_cnt: 112979945
+                          share_pct: 0.1
+                        - name: Director
+                          share_cnt: 105788265
+                          share_pct: 0.08
+                        - name: 'Public, others'
+                          share_cnt: 55326331790
+                          share_pct: 44.88
+                      company_ipo:
+                        date: 31 May 2000
+                        price: 1400
+                        share: 662400000
+                        amount: 927 B
+                      special_notation_symbols: null
+                      is_enabled: true
+                      board_id: 1
+                    is_success: true
+                    message: data found
+      operationId: getStockProfile
+      security:
+        - bearerToken: []
+  '/api/v1/oms/equities/orders/{account_id}':
+    get:
+      summary: Get order list
+      tags:
+        - trading
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  buying_power:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    buying_power: 3067571
+                    data: []
+                    message: success
+      operationId: getOrderList
+      security:
+        - bearerToken: []
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
+  /api/v1/oms/equities/buy:
+    post:
+      summary: Buy stock
+      operationId: buyStock
+      responses:
+        '200':
+          description: OK
+      tags:
+        - trading
+      security:
+        - bearerToken: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                price:
+                  type: integer
+                amount:
+                  type: integer
+                lot:
+                  type: integer
+                account_id:
+                  type: integer
+                user_id:
+                  type: string
+              x-examples:
+                Example 1:
+                  code: BBCA
+                  price: 8325
+                  amount: 832500
+                  lot: 1
+                  account_id: 11600
+                  user_id: xxx
+  /api/v1/oms/equities/gtc-buy:
+    post:
+      summary: Buy stock GTC
+      operationId: buyStockGTC
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  action:
+                    type: string
+                  account:
+                    type: string
+                  stock:
+                    type: string
+                  price:
+                    type: integer
+                  volume:
+                    type: integer
+                  user:
+                    type: string
+                  expiry:
+                    type: string
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                  reference:
+                    type: string
+                x-examples:
+                  Example 1:
+                    action: gtcbuy
+                    account: MYCH002R
+                    stock: BBCA
+                    price: 7925
+                    volume: 1
+                    user: MYCHAE
+                    expiry: 21/01/2023
+                    status: 10
+                    message: Market Closed
+                    reference: 'null'
+      tags:
+        - trading
+      security:
+        - bearerToken: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stock:
+                  type: string
+                price:
+                  type: integer
+                volume:
+                  type: integer
+                expiry:
+                  type: string
+              x-examples:
+                Example 1:
+                  stock: BBCA
+                  price: 7925
+                  volume: 1
+                  expiry: 21/01/2023
+    parameters: []
+  /api/v1/oms/equities/sell:
+    post:
+      summary: Sell stock
+      operationId: sellStock
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  action:
+                    type: string
+                  account:
+                    type: string
+                  stock:
+                    type: string
+                  price:
+                    type: integer
+                  volume:
+                    type: integer
+                  user:
+                    type: string
+                  board:
+                    type: string
+                  expiry:
+                    type: string
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                  orderno:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    action: sell
+                    account: MYCH002R
+                    stock: BBCA
+                    price: 9350
+                    volume: 1
+                    user: MYCHAE
+                    board: 0RG
+                    expiry: day
+                    status: 10
+                    message: Market Closed
+                    orderno: 0
+      tags:
+        - trading
+      security:
+        - bearerToken: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                price:
+                  type: integer
+                amount:
+                  type: integer
+                lot:
+                  type: integer
+                account_id:
+                  type: integer
+                user_id:
+                  type: string
+              x-examples:
+                Example 1:
+                  code: BBCA
+                  price: 9350
+                  amount: 935000
+                  lot: 1
+                  account_id: 11600
+                  user_id: xxx
+    parameters: []
+  /api/v1/oms/equities/gtc-sell:
+    post:
+      summary: Sell stock
+      operationId: sellStockGTC
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  action:
+                    type: string
+                  account:
+                    type: string
+                  stock:
+                    type: string
+                  price:
+                    type: integer
+                  volume:
+                    type: integer
+                  user:
+                    type: string
+                  expiry:
+                    type: string
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                  reference:
+                    type: string
+                x-examples:
+                  Example 1:
+                    action: gtcsell
+                    account: MYCH002R
+                    stock: BBCA
+                    price: 9350
+                    volume: 1
+                    user: MYCHAE
+                    expiry: 21/01/2023
+                    status: 10
+                    message: Market Closed
+                    reference: 'null'
+      tags:
+        - trading
+      security:
+        - bearerToken: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stock:
+                  type: string
+                price:
+                  type: integer
+                volume:
+                  type: integer
+                expiry:
+                  type: string
+              x-examples:
+                Example 1:
+                  stock: BBCA
+                  price: 9350
+                  volume: 1
+                  expiry: 21/01/2023
+    parameters: []
+  '/api/v1/oms/equities/history/{account_id}':
+    get:
+      summary: Get trading history
+      tags:
+        - trading
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    account_id:
+                      type: integer
+                    order_id:
+                      type: integer
+                    code:
+                      type: string
+                    price:
+                      type: integer
+                    lot:
+                      type: integer
+                    amount:
+                      type: integer
+                    trade_time:
+                      type: string
+                    trade_date:
+                      type: string
+                    trade_month_year:
+                      type: string
+                    type:
+                      type: string
+                    fee:
+                      type: integer
+                    company_name:
+                      type: string
+                    trade_date_month_year:
+                      type: string
+                    unix_timestamp:
+                      type: integer
+                x-examples:
+                  Example 1:
+                    - account_id: 11600
+                      order_id: 125339
+                      code: BUKA
+                      price: 280
+                      lot: 89
+                      amount: 2492000
+                      trade_time: '09:19'
+                      trade_date: '29'
+                      trade_month_year: Nov 2022
+                      type: Sell
+                      fee: 0
+                      company_name: Bukalapak.com Tbk.
+                      trade_date_month_year: 29 Nov 2022
+                      unix_timestamp: 1669713542
+                    - account_id: 11600
+                      order_id: 238872
+                      code: BBCA
+                      price: 8625
+                      lot: 12
+                      amount: 10350000
+                      trade_time: '09:05'
+                      trade_date: '28'
+                      trade_month_year: Dec 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Central Asia Tbk
+                      trade_date_month_year: 28 Dec 2022
+                      unix_timestamp: 1672218350
+                    - account_id: 11600
+                      order_id: 311297
+                      code: BBCA
+                      price: 8225
+                      lot: 7
+                      amount: 5757500
+                      trade_time: '14:33'
+                      trade_date: '05'
+                      trade_month_year: Jan 2023
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Central Asia Tbk
+                      trade_date_month_year: 05 Jan 2023
+                      unix_timestamp: 1672929236
+                    - account_id: 11600
+                      order_id: 367363
+                      code: BBCA
+                      price: 8950
+                      lot: 15
+                      amount: 13425000
+                      trade_time: '09:34'
+                      trade_date: '25'
+                      trade_month_year: Nov 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Central Asia Tbk
+                      trade_date_month_year: 25 Nov 2022
+                      unix_timestamp: 1669368852
+                    - account_id: 11600
+                      order_id: 223415
+                      code: BBRI
+                      price: 4930
+                      lot: 4
+                      amount: 1972000
+                      trade_time: '11:02'
+                      trade_date: '30'
+                      trade_month_year: Nov 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 30 Nov 2022
+                      unix_timestamp: 1669806159
+                    - account_id: 11600
+                      order_id: 223415
+                      code: BBRI
+                      price: 4930
+                      lot: 2
+                      amount: 986000
+                      trade_time: '11:02'
+                      trade_date: '30'
+                      trade_month_year: Nov 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 30 Nov 2022
+                      unix_timestamp: 1669806159
+                    - account_id: 11600
+                      order_id: 223415
+                      code: BBRI
+                      price: 4930
+                      lot: 96
+                      amount: 47328000
+                      trade_time: '11:02'
+                      trade_date: '30'
+                      trade_month_year: Nov 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 30 Nov 2022
+                      unix_timestamp: 1669806159
+                    - account_id: 11600
+                      order_id: 120937
+                      code: BBRI
+                      price: 4460
+                      lot: 13
+                      amount: 5798000
+                      trade_time: '10:52'
+                      trade_date: '10'
+                      trade_month_year: Jan 2023
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 10 Jan 2023
+                      unix_timestamp: 1673347960
+                    - account_id: 11600
+                      order_id: 120937
+                      code: BBRI
+                      price: 4460
+                      lot: 1
+                      amount: 446000
+                      trade_time: '10:52'
+                      trade_date: '10'
+                      trade_month_year: Jan 2023
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 10 Jan 2023
+                      unix_timestamp: 1673347960
+                    - account_id: 11600
+                      order_id: 120937
+                      code: BBRI
+                      price: 4460
+                      lot: 9
+                      amount: 4014000
+                      trade_time: '10:52'
+                      trade_date: '10'
+                      trade_month_year: Jan 2023
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Rakyat Indonesia (Persero) Tbk.
+                      trade_date_month_year: 10 Jan 2023
+                      unix_timestamp: 1673347960
+                    - account_id: 11600
+                      order_id: 223502
+                      code: BBCA
+                      price: 9250
+                      lot: 35
+                      amount: 32375000
+                      trade_time: '14:10'
+                      trade_date: '30'
+                      trade_month_year: Nov 2022
+                      type: Buy
+                      fee: 0
+                      company_name: Bank Central Asia Tbk
+                      trade_date_month_year: 30 Nov 2022
+                      unix_timestamp: 1669817417
+      operationId: getTradingHistory
+      security:
+        - bearerToken: []
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
+  /api/v1/oms/equities/gtc-orderlist:
+    get:
+      summary: Get GTC order list
+      tags:
+        - trading
+      responses:
+        '200':
+          description: OK
+      operationId: getGTCOrderList
+      security:
+        - bearerToken: []
+components:
+  parameters: {}
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
