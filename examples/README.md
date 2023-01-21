@@ -4,6 +4,7 @@
 - [Table of Contents](#table-of-contents)
 - [Stock API](#stock-api)
   - [Get stock info](#get-stock-info)
+  - [Get stock key stat](#get-stock-key-stat)
 
 # Stock API
 
@@ -31,6 +32,105 @@ Response
   "special_notation_symbols": null,
   "is_enabled": true,
   "board_id": 1
+ }],
+ "is_success": true,
+ "message": "data found"
+}
+```
+
+## Get stock key stat
+
+Source code [here](get-stock-keystat.js)
+
+Response
+
+```json
+{
+ "code": 2,
+ "data": [{
+  "category_id": 1,
+  "category_label": "Earnings",
+  "component": [{
+   "id": 1,
+   "label": "Dividend Per Share (DPS)",
+   "value": 145
+  }, {
+   "id": 2,
+   "label": "Earnings Per Share (EPS) Annualised",
+   "value": 316.33
+  }, {
+   "id": 3,
+   "label": "Revenue Per Share (RPS) Annualised",
+   "value": 370.08
+  }, {
+   "id": 4,
+   "label": "Book Value Per Share (BVPS)",
+   "value": 1736.61
+  }, {
+   "id": 5,
+   "label": "Cash Flow Per Share (CFPS) Annualised",
+   "value": 404.36
+  }, {
+   "id": 6,
+   "label": "Cash Per Share (CPS)",
+   "value": 119.08
+  }, {
+   "id": 7,
+   "label": "Earnings Before Tax (EBT)",
+   "value": 35805328000
+  }]
+ }, {
+  "category_id": 2,
+  "category_label": "Valuation",
+  "component": [{
+   "id": 8,
+   "label": "Price Earnings Ratio (PER)",
+   "value": 26.24
+  }, {
+   "id": 9,
+   "label": "Price Book Value Ratio",
+   "value": 4.78
+  }]
+ }, {
+  "category_id": 3,
+  "category_label": "Profitability",
+  "component": [{
+   "id": 10,
+   "label": "Dividend Payout Ratio (DPR)",
+   "value": 49.52
+  }, {
+   "id": 11,
+   "label": "Gross Profit Margin (GPM)",
+   "value": 51.66
+  }, {
+   "id": 12,
+   "label": "Operating Profit Margin (OPM)",
+   "value": 51.66
+  }, {
+   "id": 13,
+   "label": "Net Profit Margin (NPM)",
+   "value": 41.78
+  }, {
+   "id": 14,
+   "label": "Return on Equity (ROE) Annualised",
+   "value": 18.22
+  }, {
+   "id": 15,
+   "label": "Return on Assets (ROA) Annualised",
+   "value": 3
+  }]
+ }, {
+  "category_id": 4,
+  "category_label": "Liquidity",
+  "component": [{
+   "id": 16,
+   "label": "Debt Equity Ratio (DER)",
+   "value": 505
+  }, {
+   "id": 17,
+   "label": "Current Ratio (CRR)",
+   "value": 0
+  }]
  }],
  "is_success": true,
  "message": "data found"
