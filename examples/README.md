@@ -2,9 +2,52 @@
 # Table of Contents
 
 - [Table of Contents](#table-of-contents)
+- [User API](#user-api)
+  - [Get user portfolio](#get-user-portfolio)
 - [Stock API](#stock-api)
   - [Get stock info](#get-stock-info)
   - [Get stock key stat](#get-stock-key-stat)
+
+# User API
+
+## Get user portfolio
+
+Source code [here](get-user-portfolio.js)
+
+Response
+
+```json
+{
+ "data": {
+  "buying_power": 10,
+  "buyopen": 0,
+  "cash_balance": 10,
+  "earnings": 10,
+  "market_value": 10,
+  "open": 0,
+  "portfolio": [{
+   "account_id": 1,
+   "available_lot": 1,
+   "average": 1,
+   "balance_lot": 1,
+   "buy_price": 8000.06,
+   "code": "BBCA",
+   "current_price": 8300,
+   "earnings": 10,
+   "invested_amount": 10,
+   "is_enabled": true,
+   "lot": 1,
+   "return": 10,
+   "special_notation_symbols": null,
+   "value": 80000
+  }],
+  "return": 10,
+  "sellopen": 0,
+  "total_investment": 1
+ },
+ "message": "Success fetch equity portfolio"
+}
+```
 
 # Stock API
 
